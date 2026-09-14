@@ -104,7 +104,7 @@ ul.task-list li input[type="checkbox"] {
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
     <a class="nav-link" href="./index.html"> 
-<span class="menu-text">Houston Ship Channel</span></a>
+<span class="menu-text">Houston(3)</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./index_bg1_location.html"> 
@@ -195,7 +195,7 @@ grid-auto-rows: minmax(0, 1fr);">
 EPA Criteria Pollutants by Location
 </span></div></div>
 <div class="card-body html-fill-item html-fill-container">
-<p>The Clean Air Act identifies 6 air pollutants that pose the greatest health risks. They are known as criteria pollutants. This section tracks four EPA criteria pollutants, sulfur dioxide (SO₂), nitrogen dioxide (NO₂), ozone (O₃), and fine particle pollution (PM₂.₅), measured at state run (TCEQ) regulatory monitors near the three Houston Ship Channel AutoGC sites — the eight EPA-registered monitoring sites closest to Galena Park, Milby Park and Lynchburg Ferry. Each location card below shows <strong>all four</strong> EPA criteria pollutants tracked, so every site can be read as a complete picture of its criteria-pollutant concerns.</p>
+<p>The Clean Air Act identifies 6 air pollutants that pose the greatest health risks. They are known as criteria pollutants. This section tracks four EPA criteria pollutants, sulfur dioxide (SO₂), nitrogen dioxide (NO₂), ozone (O₃), and fine particle pollution (PM₂.₅), measured at state run (TCEQ) regulatory monitors near the three Houston(3) AutoGC sites — the eight EPA-registered monitoring sites closest to Galena Park, Milby Park and Lynchburg Ferry. Each location card below shows <strong>all four</strong> EPA criteria pollutants tracked, so every site can be read as a complete picture of its criteria-pollutant concerns.</p>
 <p>The EPA uses air monitoring data to determine if pollution levels meet the Clean Air Act requirements. They make these decisions based on a number representing all the measurements over a year taken at an air monitor. It is called a Design Value. It represents the highest pollution levels in that area. In the figure, each cell shows the <strong>EPA Design Value</strong> for that pollutant divided by the corresponding <strong>National Ambient Air Quality Standard (NAAQS)</strong>.&nbsp;A value below 1.00 means the design value is within the standard; values above 1.00 indicate the yearly average is greater than the Clean Air Act (NAAQS) standard and poses an increased health risk.. Design values are computed using the same statistics EPA uses to determine if air pollution levels in the region are meeting the criteria set by the Clean Air Act. Columns cover single-year design values plus a year-to-date column, a rolling <strong>Last 365 Days</strong> window and the <strong>Last Available Month</strong>. EPA AQS releases data on a delay of weeks to months, so each of those three headings names, on its second line, the month the criteria data actually ends in. The color scale is shared across all locations, so cards can be compared directly.</p>
 <p>Not every monitor measures every pollutant. <strong>Hatched gray cells mean no measurement exists</strong> — a pollutant that is <em>not monitored at this site</em> is shown as an empty hatched row rather than being hidden, so a gap in coverage is never mistaken for a clean reading.</p>
 <details>
@@ -205,7 +205,7 @@ EPA Criteria Pollutants by Location
 <p>Each <strong>row</strong> is one of the six EPA criteria pollutants. Only four EPA criteria pollutants are measured. Each <strong>column</strong> is a period of time. Unlike the other tabs, the number here is not compared to a screening level — it is the <strong>EPA design value divided by the National Ambient Air Quality Standard (NAAQS)</strong>, written as a multiple with an “x.”</p>
 <p>A design value is the particular statistic EPA uses for each pollutant when comparing a monitor against its standard, rather than a simple average. (The <a href="./index_faq.html">FAQ</a> explains which statistic is used for each pollutant.) <strong>Below 1.00x</strong> means the pollutant is within the standard; <strong>above 1.00x</strong> means it is above the standard.</p>
 <strong>A clarifying example.</strong>
-<p>On the Houston East card, find the row for <strong>O3</strong> (ozone) and the column for <strong>2023</strong>. The square reads <strong>1.29x</strong>. That means ozone’s design value for 2023 was 29% above the national standard. In the same column, <strong>NO2</strong> reads <strong>0.47x</strong>, comfortably under. Ozone is above the standard at every Ship Channel site that measures it in 2023, 2024 and 2025.</p>
+<p>On the Houston East card, find the row for <strong>O3</strong> (ozone) and the column for <strong>2023</strong>. The square reads <strong>1.29x</strong>. That means ozone’s design value for 2023 was 29% above the national standard. In the same column, <strong>NO2</strong> reads <strong>0.47x</strong>, comfortably under. Ozone is above the standard at every Houston(3) criteria site that measures it in 2023, 2024 and 2025.</p>
 <img src="figures/examples/bg3_example.png" class="img-fluid">
 <p><strong>Fine particles also exceed the standard.</strong> On the same Houston East card, <strong>PM₂.₅</strong> reads <strong>1.56x</strong> in 2024 and is above <strong>1.00x</strong> in every period shown. <strong>Baytown</strong> reaches <strong>1.71x</strong> in 2024 and <strong>Clinton</strong> <strong>2.00x</strong> in 2025. Five of the eight sites measure PM₂.₅, and all of them are above the standard in most periods. (The comparison here is against the 24-hour PM₂.₅ standard.)</p>
 <p><strong>The last three columns name their ending month.</strong> The other tabs run to the most recent TCEQ data. EPA AQS, the source for this tab, releases data weeks to months after the fact, so the year-to-date, Last 365 Days and monthly columns here each carry, on a second line, the month the criteria data actually ends in — for example “Last 365 Days (ending Apr 2026)” is the 365 days up to the end of April. A site whose own data ends earlier than that month shows a blank cell rather than older data.</p>
@@ -446,7 +446,7 @@ Park Place [0416]
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/statanalyticsidd-gh\.github\.io\/Houston-ShipChannel\/");
+        var filterRegex = new RegExp("https:\/\/statanalyticsidd-gh\.github\.io\/Houston-MGL\/");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
