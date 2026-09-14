@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>CHATTER — Other Health Risks by Pollutants and Location – EDF CHATTER</title>
+<title>CHATTER — Data &amp; Methods – EDF CHATTER</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -115,7 +115,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Other Health Risks by Location</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./index_bg2_pollutants.html" aria-current="page"> 
+    <a class="nav-link" href="./index_bg2_pollutants.html"> 
 <span class="menu-text">Other Health Risks by Pollutants and Location</span></a>
   </li>  
   <li class="nav-item">
@@ -131,7 +131,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">EDF Air Tracker Map</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./index_methods.html"> 
+    <a class="nav-link active" href="./index_methods.html" aria-current="page"> 
 <span class="menu-text">Data &amp; Methods</span></a>
   </li>  
   <li class="nav-item">
@@ -156,7 +156,7 @@ ul.task-list li input[type="checkbox"] {
 
 
       <div class="navbar-title">
-        <div class="navbar-title-text"><a href="#">CHATTER — Other Health Risks by Pollutants and Location</a></div>
+        <div class="navbar-title-text"><a href="#">CHATTER — Data &amp; Methods</a></div>
         
         
       </div>
@@ -182,96 +182,99 @@ ul.task-list li input[type="checkbox"] {
   min-height: 0 !important;
   height: auto !important;
 }
-.card-body { padding-top: 0.25rem !important; padding-bottom: 0.25rem !important; }
-.card-body img { display: block; height: auto !important; margin: 0 !important; }
+.card-body { padding-top: 0.5rem !important; padding-bottom: 0.5rem !important; }
 .card-header { padding-top: 0.25rem !important; padding-bottom: 0.25rem !important; }
 .bslib-gap-spacing { gap: 0.4rem !important; }
+
+/* Same measure and rhythm as the FAQ tab. */
+.methods-body { max-width: 62rem; }
+.methods-body p { margin-bottom: 0.7rem; line-height: 1.55; }
+/* The download links stand out as buttons. */
+.methods-downloads a[href^="downloads/"] {
+  display: inline-block; padding: 0.15rem 0.55rem; margin: 0 0.1rem;
+  border: 1px solid #1a3a8f; border-radius: 0.3rem; color: #1a3a8f;
+  font-weight: 600; text-decoration: none; background: #f4f6fb;
+}
+.methods-downloads a[href^="downloads/"]:hover { background: #e3e8f5; }
+details.methods-tech summary { cursor: pointer; font-weight: 600; color: #1a3a8f; }
+details.methods-tech { margin-top: 0.3rem; }
 </style>
-<div class="bslib-grid-item html-fill-item bslib-grid" data-layout="flow" style="display: grid; grid-template-rows: 230px minmax(3em, 1fr) minmax(3em, 1fr) minmax(3em, 1fr); grid-auto-columns: minmax(0, 1fr);">
+<!-- This page has no computation.  The two files it links are written by
+     scripts/export_downloads.py (part of the refresh sequence) into downloads/,
+     which _quarto.yml lists under `resources` so they are copied into _site/.
+     The prose lives in _text/methods_*.md, like every other page, and the
+     report includes the same files. -->
+<div class="bslib-grid-item html-fill-item bslib-grid" data-layout="flow" style="display: grid; grid-template-rows: minmax(3em, 1fr) minmax(3em, 1fr) minmax(3em, 1fr); grid-auto-columns: minmax(0, 1fr);">
 <div class="bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr);
 grid-auto-rows: minmax(0, 1fr);">
-<div class="card bslib-card html-fill-container" data-title="Other Health Risks — All Pollutants by Location" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card bslib-card html-fill-container" data-title="Where the numbers come from, and how they are calculated" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
 <div class="card-header"><div class="card-title"><span style="display: inline">
-Other Health Risks — All Pollutants by Location
+Where the numbers come from, and how they are calculated
 </span></div></div>
 <div class="card-body html-fill-item html-fill-container">
-<p>Each location card lists <strong>every other-health-risk pollutant</strong> measured at that site, the <strong>health effects</strong> each one is associated with, and its risk over time — the average concentration divided by the screening level. A value below <strong>1.00x</strong> is below the screening level; <strong>1.00x</strong> is the screening level itself. The bottom <strong>Total</strong> row adds those ratios across all pollutants at that site, the same “Total” definition used on the main dashboard.</p>
-<p>CHATTER analyzes air pollutants measured with automatic gas chromatograph (AutoGC) equipment. In the Houston Ship Channel area, CHATTER follows three AutoGC monitor sites that measure the cancer risk and other health risk pollutants: <strong>Galena Park</strong>, <strong>Houston Milby Park</strong> and <strong>Lynchburg Ferry</strong>. Hatched gray cells mean no measurement exists for that pollutant in that period.</p>
-<details>
+<div class="methods-body html-fill-item html-fill-container">
+<p><strong>Where the numbers come from.</strong> CHATTER does not measure anything itself. Every value on this site is computed from public monitoring records kept by two agencies.</p>
+<p>The <strong>cancer-risk</strong> and <strong>other-health-risk</strong> pollutants come from the Texas Commission on Environmental Quality’s (TCEQ) automated gas chromatograph (AutoGC) monitors at <strong>Galena Park</strong>, <strong>Houston Milby Park</strong> and <strong>Lynchburg Ferry</strong>, all in Harris County along the Houston Ship Channel, which measure a fixed list of volatile organic compounds every hour, around the clock. CHATTER downloads the hourly readings from TCEQ’s data export and stitches successive downloads into one record per monitor; where two downloads overlap, the newer one wins, because TCEQ revises readings after the fact.</p>
+<p>The <strong>EPA criteria pollutants</strong> — ozone, fine particles (PM₂.₅), nitrogen dioxide and sulfur dioxide — come from the continuous regulatory monitors at eight Harris County sites near the Ship Channel (Baytown, Channelview, Clinton, Houston East, Finnigan Park, Pleasantville Elementary, Lynchburg Ferry and Park Place), whose daily values are retrieved from EPA’s Air Quality System (AQS). No single site measures all four pollutants — three of the eight (Baytown, Finnigan Park and Pleasantville Elementary) measure only fine particles, and sulfur dioxide is measured only at Clinton and Park Place — so each location card shows only what that site measures. AQS publishes with a lag of weeks to months, so the criteria section usually ends earlier than the AutoGC sections; its column headings say which month the data run through.</p>
+<p><strong>How a heatmap cell is calculated.</strong> For an AutoGC pollutant, CHATTER takes every valid hourly reading in the period (a calendar year, the year to date, or the last 365 days), averages them, and divides that mean by the pollutant’s EPA screening level — the concentration below which long-term exposure is not expected to raise health concerns. A cell of <strong>1.00x</strong> means the average sat exactly at the screening level. The monthly column works the same way one week at a time: each Sunday-to-Saturday week is averaged first, and the month’s cell is the average of its weeks. Cancer-risk cells use the cancer screening level; other-health-risk cells use the non-cancer screening level for the same compound, and a health-effect total adds up the ratios of every pollutant linked to that effect.</p>
+<p>For a criteria pollutant the cell is a single-period <strong>design value</strong> — the particular statistic EPA compares against each National Ambient Air Quality Standard, such as the fourth-highest daily maximum eight-hour ozone concentration or the 98th percentile of daily fine-particle readings — divided by that standard. EPA’s official design values average three years; CHATTER’s are for one period at a time, so they signal where a closer look is warranted rather than declare an area in or out of attainment.</p>
+<p>One mark shows when a number rests on thinner ground: an asterisk after a value means that only 60–75 % of the possible hourly readings were available for that period (below 60 % the cell is left blank, and every figure with an asterisk carries a footnote saying so). A criteria site is blank for any period in which it did not report that pollutant.</p>
+</div>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+<div class="bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="card bslib-card html-fill-container" data-title="Download the data" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-header"><div class="card-title"><span style="display: inline">
+Download the data
+</span></div></div>
+<div class="card-body html-fill-item html-fill-container">
+<div class="methods-body methods-downloads html-fill-item html-fill-container">
+<p><strong>Every value on this site, in one file.</strong> <a href="downloads/CHATTER_HoustonShipChannel_values.csv"><code>CHATTER_HoustonShipChannel_values.csv</code></a> holds one row for every heatmap cell — monitor, pollutant (or health effect, or total), and period — together with the summary statistics it was computed from. It is regenerated from the same code that draws the pages, so a row in the file cannot disagree with a cell on the site. It opens in Excel, R or Python.</p>
+<p>Each row carries the group (Cancer Risk, Other Health Risks, EPA Criteria Pollutants), the monitor and its AQS site number, the county, the period and its calendar bounds, and <code>value_shown</code>, the number in the cell. For AutoGC pollutants it adds the mean concentration in ppb, the screening level it was divided by, the number of valid hourly readings behind the mean (for the monthly column, the readings summed over the weeks averaged and how many weeks there were), the completeness and whether the cell carries the asterisk. For criteria pollutants it adds the design value in the standard’s own units, the standard, and the statistic used. Totals are marked as such and carry the displayed sum and the lowest completeness among the cells summed.</p>
+<p><strong>How each statistic is defined.</strong> <a href="downloads/CHATTER_statistics_documentation.xlsx"><code>CHATTER_statistics_documentation.xlsx</code></a> is the reference sheet: every statistic that appears on the site, its formula, and where in the code it is computed.</p>
+</div>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+<div class="bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="card bslib-card html-fill-container" data-title="Technical details" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-header"><div class="card-title"><span style="display: inline">
+Technical details
+</span></div></div>
+<div class="card-body html-fill-item html-fill-container">
+<div class="methods-body html-fill-item html-fill-container">
+<details class="methods-tech">
 <summary>
-<strong>How to read this plot</strong> (click to expand)
+Screening levels, data completeness, periods, design values (click to expand)
 </summary>
-<p>Each <strong>row</strong> is an air pollutant, with the health system or target organ it is associated with listed beside it. Each <strong>column</strong> is a period of time. The bottom row, <strong>Total</strong>, adds all the pollutants together for that period. The number in each square is the measured level divided by the EPA screening level, written as a multiple with an “x.”</p>
-<strong>A clarifying example.</strong>
-<p>On the Galena Park card, find the row for <strong>Benzene</strong> and the column for <strong>2024</strong>. The square reads <strong>0.090x</strong>. The health effect listed beside benzene is <em>Immune system</em>, meaning breathing benzene at high enough levels can affect the immune system. The number means the average benzene level in 2024 was about 9% of the screening level — <strong>well below</strong> it. In the same column, the <strong>Total</strong> row reads <strong>0.405x</strong>: adding all thirteen pollutants together, the combined level was about 40% of the screening level.</p>
-<img src="figures/examples/bg2poll_example.png" class="img-fluid">
-<p><strong>Most of this tab is below the screening level.</strong> The color scale does not begin to darken until <strong>0.75x</strong>, and almost every value sits far under that, so most of the grid appears in the palest shade. That is the finding, not a rendering problem. The exception is <strong>1,3-butadiene at Houston Milby Park</strong>, which approaches or reaches the screening level in the most recent periods and lifts that site’s <strong>Total</strong> to around <strong>1.0x</strong>. Read the numbers to compare pollutants, sites, and years.</p>
-<p><strong>Hatched gray squares</strong> mean the pollutant was not measured in that period — which is different from a low reading, and so is marked differently.</p>
-<p>For a general explanation of heat maps, see the <a href="./index_faq.html">Frequently Asked Questions</a>.</p>
+<p><strong>Screening levels.</strong> EPA Regional Screening Levels for resident air, expressed in ppb (<code>Standard_Param_v6.csv</code>); cancer values at a one-in-a-million target risk, non-cancer values at a hazard quotient of 1. The table lists nineteen compounds; two of them (benzene and 1,3-butadiene) carry a cancer screening level, and the other-health-risk tabs show the thirteen that the monitors measure and that are linked to a listed health effect.</p>
+<p><strong>Data completeness.</strong> An AutoGC reports one reading per hour. Completeness for a period is the number of valid hourly readings divided by the hours in the period (a calendar year, or the days elapsed so far for the current year; 168 for a week). A period below 60 % completeness is not summarised and its cell is blank; between 60 % and 75 % it is shown with an asterisk. The same rule applies to the year, the week and the 365-day window; the monthly cell carries the average completeness of its weeks, and a Total row the lowest completeness of the cells it sums. The completeness of every cell is in the download file. TCEQ’s non-numeric quality flags (for example “ST”, “BL”) are not counted as valid readings.</p>
+<p><strong>Periods.</strong> Calendar years, the year to date, a rolling 365 days, and the most recent complete calendar month, all measured back from the data cutoff — the last day on which all three AutoGC monitors have a numeric reading. Weeks run Sunday to Saturday, and the monthly column is the month of the last complete week at the cutoff. Times are Central Standard Time as TCEQ reports them. The criteria section is truncated at the same cutoff, but because AQS lags, its year-to-date, 365-day and monthly columns end on the last day for which any criteria site has data; the month is printed in the column heading.</p>
+<p><strong>Statistic displayed.</strong> The arithmetic mean of the period’s hourly readings (for the monthly column, the mean of the weekly means). A 95 % upper confidence limit of the mean (Student’s t) is also computed and kept in the working tables but is not displayed.</p>
+<p><strong>Criteria pollutants.</strong> Daily values from AQS: the 24-hour PM₂.₅ value (parameter 88101), the daily maximum 8-hour ozone average, and the daily 1-hour maxima for NO₂ and SO₂, primary monitors only; where a site runs two instruments for the same pollutant the higher daily value is used. Single-period design values: 98th percentile of the daily values (PM₂.₅ against 35 µg/m³; NO₂ against 100 ppb), 99th percentile (SO₂ against 75 ppb), and the fourth-highest daily maximum (ozone against 0.070 ppm).</p>
+<p><strong>Code.</strong> The site is a Quarto project; every table is built by one Python module per pollutant group, and the pages only draw them. The file above is written by the same modules.</p>
 </details>
 </div>
-<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
-    <template>Expand</template>
-    <span class="bslib-full-screen-enter badge rounded-pill">
-        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
-    </span>
-</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div><!-- One row per location, on the same page as the overview.  No level-1 (#)
-     headings anywhere in this file — a '#' heading would split the dashboard
-     into separate tabs/pages. --><!-- BEGIN generated cards — scripts/build_pages.py; edit that, not this -->
-</div>
-<div class="bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr);
-grid-auto-rows: minmax(0, 1fr);">
-<div class="card cell bslib-card html-fill-container" data-title="Galena Park" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
-<div class="card-header"><div class="card-title"><span style="display: inline">
-Galena Park
-</span></div></div>
-<div class="card-body html-fill-item html-fill-container">
-<div class="cell-output cell-output-display html-fill-item html-fill-container">
-<img src="index_bg2_pollutants_files/figure-html/cell-5-output-1.png" class="img-fluid quarto-dashboard-img-contain">
-</div>
 </div>
 <bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
     <template>Expand</template>
     <span class="bslib-full-screen-enter badge rounded-pill">
         <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
     </span>
-</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
-</div>
-<div class="bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr);
-grid-auto-rows: minmax(0, 1fr);">
-<div class="card cell bslib-card html-fill-container" data-title="Houston Milby Park" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
-<div class="card-header"><div class="card-title"><span style="display: inline">
-Houston Milby Park
-</span></div></div>
-<div class="card-body html-fill-item html-fill-container">
-<div class="cell-output cell-output-display html-fill-item html-fill-container">
-<img src="index_bg2_pollutants_files/figure-html/cell-6-output-1.png" class="img-fluid quarto-dashboard-img-contain">
-</div>
-</div>
-<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
-    <template>Expand</template>
-    <span class="bslib-full-screen-enter badge rounded-pill">
-        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
-    </span>
-</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
-</div>
-<div class="bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr);
-grid-auto-rows: minmax(0, 1fr);">
-<div class="card cell bslib-card html-fill-container" data-title="Lynchburg Ferry" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
-<div class="card-header"><div class="card-title"><span style="display: inline">
-Lynchburg Ferry
-</span></div></div>
-<div class="card-body html-fill-item html-fill-container">
-<div class="cell-output cell-output-display html-fill-item html-fill-container">
-<img src="index_bg2_pollutants_files/figure-html/cell-7-output-1.png" class="img-fluid quarto-dashboard-img-contain">
-</div>
-</div>
-<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
-    <template>Expand</template>
-    <span class="bslib-full-screen-enter badge rounded-pill">
-        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
-    </span>
-</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div><!-- END generated cards --><div id="3ade8a4a-fb1d-4a6c-8409-ac45482d5fc9" class="hidden">
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div><div id="3ade8a4a-fb1d-4a6c-8409-ac45482d5fc9" class="hidden">
 
 </div>
 </div>
